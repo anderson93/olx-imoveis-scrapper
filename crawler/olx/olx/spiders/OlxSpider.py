@@ -11,7 +11,7 @@ class OlxSpider(scrapy.Spider):
     name = "olx_spider"
     start_urls = []
     template_initial_url = (
-        "https://pe.olx.com.br/grande-recife/recife/imoveis/aluguel/apartamentos?bae=3&bas=1&o={}&pe=1500&roe=3&ros=1&sd=3744&sd=3759&sd=3743&sd=3774&sd=3771&sd=3768"
+        "https://pe.olx.com.br/grande-recife/recife/imoveis/aluguel/apartamentos?o={}"
     )
     olx_date_pattern = re.compile(r"\d{2}/\d{2}")
     portal_id_pattern = re.compile(r"\d*")
@@ -25,7 +25,7 @@ class OlxSpider(scrapy.Spider):
 
     def __init__(self):
         start_urls = [self.template_initial_url]
-        pages = [str(x) for x in range(0,16)]
+        pages = [str(x) for x in range(0,101)]
         for page in pages:
             start_urls.append(self.template_initial_url.format(page))
 
