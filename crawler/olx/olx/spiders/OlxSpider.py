@@ -25,7 +25,7 @@ class OlxSpider(scrapy.Spider):
 
     def __init__(self):
         start_urls = [self.template_initial_url]
-        pages = [str(x) for x in range(0,101)]
+        pages = [str(x) for x in range(0,102)]
         for page in pages:
             start_urls.append(self.template_initial_url.format(page))
 
